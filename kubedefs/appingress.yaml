@@ -4,19 +4,16 @@ metadata:
   name: vpro-ingress
   annotations:
     nginx.ingress.kubernetes.io/use-regex: "true"
-  labels:
-    name: vpro-ingress
-    
 spec:
   ingressClassName: nginx
   rules:
   - host: vprofile.mhdznga.xyz
     http:
       paths:
-        path: /
+      - path: /
         pathType: Prefix
         backend:
-          service: 
+          service:
             name: vproapp-service
             port:
               number: 8080
