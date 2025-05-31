@@ -18,13 +18,13 @@ spec:
         ports:
         - containerPort: 8080
           name: vproapp-port
-      initContainers:
-      - name: init-mydb
-        image: busybox
-        command: ['sh', '-c', 'until nslookup vprodb.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for mydb; sleep 2; done;']
-      - name: init-mc
-        image: busybox
-        command: ['sh', '-c', 'until nslookup vpromc.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for memcache; sleep 2; done;']
-      - name: init-rmq
-        image: busybox
-        command: ['sh', '-c', 'until nslookup vpromq.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for rabbitmq; sleep 2; done;']
+      # initContainers:
+      # - name: init-mydb
+      #   image: busybox
+      #   command: ['sh', '-c', 'until nslookup vprodb.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for mydb; sleep 2; done;']
+      # - name: init-mc
+      #   image: busybox
+      #   command: ['sh', '-c', 'until nslookup vpromc.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for memcache; sleep 2; done;']
+      # - name: init-rmq
+      #   image: busybox
+      #   command: ['sh', '-c', 'until nslookup vpromq.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for rabbitmq; sleep 2; done;']
